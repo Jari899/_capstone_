@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import { useCartStore } from '../store/CartStore';
 import '../styles/navbar.css';
 
@@ -8,14 +8,13 @@ const Navbar = () => {
   const totalPrice = items?.reduce((total, item) => total + item.price, 0);
   return (
     <nav className='navbar'>
-      <h1>Header Goes Here</h1>
+      <h1>Capstone Storefront</h1>
       <section className='nav-links-container'>
         <NavLink to="/" className='nav-link'>Home</NavLink>
-        {/* You will have to adjust the NavLink element below this comment to create a real checkout page, starting with creating a new route in your project and then adjusting the `to` property */}
-        <NavLink to="#" className='nav-link'>Checkout ${totalPrice}</NavLink>
-        {/* Create New NavLink Elements in your project and place them below this comment */}
-
-        {/* Create New NavLink Elements in your project and place them above this comment */}
+        <NavLink to="/shop" className='nav-link'>Shop</NavLink>
+        <NavLink to="/contact" className='nav-link'>Contact</NavLink>
+        <NavLink to="/cart" className='nav-link'>Cart</NavLink>
+        <NavLink to="/checkout" className='nav-link'>Checkout (${totalPrice.toFixed(2)})</NavLink>
       </section>
     </nav>
   )
